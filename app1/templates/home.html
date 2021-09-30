@@ -3,6 +3,35 @@
 
 {% block content %}
 
-<h1>This is Homepage</h1>
+&nbsp;Air Quality Results for :</br>
+<h1>{{ api.0.ReportingArea}}</h1> 
+     
+</br>
+</br>
+
+    <div class=" row  bg-primary">
+        
+
+        <div class="col-2 bg-light" style="margin: 10px;">
+            Date: {{ api.0.DateIssue}} </br>
+            Forecast Date: {{api.0.DateForecast}} </br>
+            Area: {{ api.0.ReportingArea}}</br>
+        </div>
+
+        <div class="col-3 bg-light" style="margin: 10px;">
+            State Code: {{api.0.StateCode}}</br>
+            AQI: {{api.0.AQI}}</br>
+            Quality: {{api.0.Category.Name}}</br>
+        </div>
+
+        <div class="col-6 bg-light" style="margin: 10px;">
+            {{api.0.Discussion}}
+        </div>
+    </div>
+
+
+
+
+
 
 {% endblock%}
