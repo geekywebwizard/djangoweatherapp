@@ -2,6 +2,49 @@
 
 {% block content %}
 
-<h1>This is About Us Page</h1>
+<h1>About</h1>
+
+
+<div class="row">
+    <h5>About the Project</h5>
+    <p>The project is built using Python's Django Web Framework for backend | Bootstrap for fronent and | AirNow API to pull data for few valid US Zip codes
+Its a simple and FREE tool for students who wants to learn Python, Django, Bootstrap and APIs. The complete code is available on my Git Hub repository. 
+<a href="https://github.com/geekywebwizard/djangoweatherapp" target="_blank">View repository</a>
+    </p>
+
+
+    <h5>How to use the tool:</h5>
+    </br>
+
+    <p>Welcome to FREE online AirQuality checker tool. Use this tool to scan air quality in your city using
+        ZIP code.
+        This tool uses API provided by AIR-NOW ( Government Organization in USA), hence only ZIP codes from
+        USA would be valid.
+        Currently for few ZIP codes you might see no results : it might be due to insufficient data gathered
+        by API so please check back later or scan using other ZIP codes from USA.
+    </p>
+    </br>
+
+    <p>For easy reference I have included few ZIP Codes that you might want to use to scan the city air
+        quality.
+    </p>
+
+    
+
+
+     <p>Also Checkout:</p></br>
+        <a href="https://gwizacademy.com" target="_blank">GWiz Academy Official Website</a></br>
+        <a href="https://geekywebwizards.com" target="_blank">Geeky Web Wizards Official Website</a></br>
+        <a href="https://github.com/geekywebwizard" target="_blank">Git Hub link</a></br>
+        <a href="https://youtube.gwizacademy.com" target="_blank">YouTube Channel</a></br>
+
+        </br>
+        </br>
+        </br>
+
+
+
+</div>
+<a href=" {% url 'contact' %}"><h3>Know about me!</h3></a>
 
 {% endblock%}

@@ -19,36 +19,669 @@
             
             {% else %}
 
-                        <div class=" row" style="border-radius: 10px; background-color:lightgray; padding-top: 25px; padding-bottom: 25px;">
-                            <div class="col-12">
+                        <div class=" row justify-content-center " style="border-radius: 10px; background-color:lightgray; padding: 50px;">
+                            <div class="col-12" style="text-align: center;">
                                 Air Quality Results for : <h1>{{ api.0.ReportingArea}} / {{api.0.DateIssue}}</h1>
                             </div>
 
-                            <div class="col-4" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
+                            <div class="col-3" style="margin: 10px; border-radius: 10px; background-color:whitesmoke; padding: 5px;">
                                 Date: {{ api.0.DateIssue}} </br>
                                 Forecast Date: {{api.0.DateForecast}} </br>
                                 Area: {{ api.0.ReportingArea}}</br>
                             </div>
 
-                            <div class="col-2" style="margin: 10px; border-radius: 10px; background-color: wheat;padding: 5px;">
+                            <div class="col-3" style="margin: 10px; border-radius: 10px; background-color:whitesmoke; padding: 5px;">
                                 State Code: {{api.0.StateCode}}</br>
                                 AQI: {{api.0.AQI}}</br>
                                 Quality: {{api.0.Category.Name}}</br>
                             </div>
 
-                            <div class="col-5" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
+                            <div class="col-4" style="margin: 10px; border-radius: 10px; background-color:whitesmoke; padding: 5px;">
                              Quality: </br>
                             <h1>{{api.0.Category.Name}}</h1>
+                            </div> 
+                        </br>
+                    </br>
+                </hr>
+                    
+                            <div class="col-9 justify-content-center" style="margin-top: 50px;">
+                                <form action="{% url 'home' %}" class="d-flex" method="POST">
+                                    {% csrf_token %}
+                                  <input class="form-control" type="search" placeholder="Enter Zipcode" aria-label="Search" name="zipcode">
+                                  <button class="btn btn-secondary" type="submit">Scan</button>
+                                </form>
+
                             </div>
 
-                            <div class="col-11" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
-                                {{api.0.Discussion}}
-                            </div>
                         </div>
+
+
+                        
             {%endif%}
         {%endif%}
 
 
+
+
+                    </br>
+            <div class="row">
+                <h5>How to use the tool:</h5>
+                </br>
+
+                <p>Welcome to FREE online AirQuality checker tool. Use this tool to scan air quality in your city using
+                    ZIP code.
+                    This tool uses API provided by AIR-NOW ( Government Organization in USA), hence only ZIP codes from
+                    USA would be valid.
+                    Currently for few ZIP codes you might see no results : it might be due to insufficient data gathered
+                    by API so please check back later or scan using other ZIP codes from USA.
+                </p>
+                </br>
+
+                <p>For easy reference I have included few ZIP Codes that you might want to use to scan the city air
+                    quality.
+                </p>
+            </div>
+
+        <div class="row" style="border-radius: 10px; background-color:lightgray; padding: 50px; margin-top: 35px;">
+
+
+            <table BORDER COLS=3 WIDTH="100%" style="background-color: ;">
+                <tr>
+                    <td BGCOLOR="#006666"><b>
+                            <font face="Arial,Helvetica" color="#FFFFFF">State</font>
+                        </b></td>
+                    <td BGCOLOR="#006666"><b>
+                            <font face="Arial,Helvetica" color="#FFFFFF">City</font>
+                        </b></td>
+                    <td BGCOLOR="#006666">
+                        <font face="Arial,Helvetica" color="#FFFFFF"><b>ZIP Code(s)</b></font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Alabama (AL)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Huntsville</font>
+                    </td>
+                    <td>
+                        <font size=-1>35801 thru 35816</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Alaska (AK)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Anchorage</font>
+                    </td>
+                    <td>
+                        <font size=-1>99501 thru 99524</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Arizona (AZ)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Phoenix</font>
+                    </td>
+                    <td>
+                        <font size=-1>85001 thru 85055</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Arkansas (AR)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Little Rock</font>
+                    </td>
+                    <td>
+                        <font size=-1>72201 thru 72217</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>California (CA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Sacramento</font><br>&#160;<br>
+                        <font size=-1>Los Angeles</font><br>&#160;<br>
+                        <font size=-1>Beverly Hills</font>
+                    </td>
+                    <td>
+                        <font size=-1>94203 thru 94209</font><br>&#160;<br>
+                        <font size=-1>90001 thru 90089</font><br>&#160;<br>
+                        <font size=-1>90209 thru 90213</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Colorado (CO)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Denver</font>
+                    </td>
+                    <td>
+                        <font size=-1>80201 thru 80239</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Conneticut (CT)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Hartford</font>
+                    </td>
+                    <td>
+                        <font size=-1>06101 thru 06112</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Deleware (DE)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Dover</font>
+                    </td>
+                    <td>
+                        <font size=-1>19901 thru 19905</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>District of Columbia (DC)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Washington</font>
+                    </td>
+                    <td>
+                        <font size=-1>20001 thru 20020</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Florida (FL)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Pensacola</font><br>&#160;<br>
+                        <font size=-1>Miami</font><br>&#160;<br>
+                        <font size=-1>Orlando</font>
+                    </td>
+                    <td>
+                        <font size=-1>32501 thru 32509</font><br>&#160;<br>
+                        <font size=-1>33124 thru 33190</font><br>&#160;<br>
+                        <font size=-1>32801 thru 32837</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Georgia (GA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Atlanta</font>
+                    </td>
+                    <td>
+                        <font size=-1>30301 thru 30381</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Hawaii (HI)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Honolulu</font>
+                    </td>
+                    <td>
+                        <font size=-1>96801 thru 96830</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Idaho (ID)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Montpelier</font>
+                    </td>
+                    <td>
+                        <font size=-1>83254</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Illinois (IL)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Chicago</font><br>&#160;<br>
+                        <font size=-1>Springfield</font>
+                    </td>
+                    <td>
+                        <font size=-1>60601 thru 60641</font><br>&#160;<br>
+                        <font size=-1>62701 thru 62709</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Indiana (IN)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Indianapolis</font>
+                    </td>
+                    <td>
+                        <font size=-1>46201 thru 46209</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Iowa (IA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Davenport</font><br>&#160;<br>
+                        <font size=-1>Des Moines</font>
+                    </td>
+                    <td>
+                        <font size=-1>52801 thru 52809</font><br>&#160;<br>
+                        <font size=-1>50301 thru 50323</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Kansas (KS)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Wichita</font>
+                    </td>
+                    <td>
+                        <font size=-1>67201 thru 67221</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Kentucky (KY)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Hazard</font>
+                    </td>
+                    <td>
+                        <font size=-1>41701- 41702</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Lousiana (LA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>New Orleans</font>
+                    </td>
+                    <td>
+                        <font size=-1>70112 thru 70119</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Maine (ME)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Freeport</font>
+                    </td>
+                    <td>
+                        <font size=-1>04032 thru 04034</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Maryland (MD)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Baltimore</font>
+                    </td>
+                    <td>
+                        <font size=-1>21201 thru 21237</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Massachusetts (MA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Boston</font>
+                    </td>
+                    <td>
+                        <font size=-1>02101 thru 02137</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Michigan (MI)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Coldwater</font><br>&#160;<br>
+                        <font size=-1>Gaylord</font>
+                    </td>
+                    <td>
+                        <font size=-1>49036</font><br>&#160;<br>
+                        <font size=-1>49734 - 49735</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Minnesota (MN)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Duluth</font>
+                    </td>
+                    <td>
+                        <font size=-1>55801 thru 55808</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Mississippo (MS)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Biloxi</font>
+                    </td>
+                    <td>
+                        <font size=-1>39530 thru 39535</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Missouri (MO)</font>
+                    </td>
+                    <td>
+                        <font size=-1>St. Louis</font>
+                    </td>
+                    <td>
+                        <font size=-1>63101 thru 63141</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Montana (MT)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Laurel</font>
+                    </td>
+                    <td>
+                        <font size=-1>59044</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Nebraska (NE)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Hastings</font>
+                    </td>
+                    <td>
+                        <font size=-1>68901 - 68902</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Nevada (NV)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Reno</font>
+                    </td>
+                    <td>
+                        <font size=-1>89501 thru 89513</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>New Hampshire (NH)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Ashland</font>
+                    </td>
+                    <td>
+                        <font size=-1>03217</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>New Jersey (NJ)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Livingston</font>
+                    </td>
+                    <td>
+                        <font size=-1>07039</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>New Mexico (NM)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Santa Fe</font>
+                    </td>
+                    <td>
+                        <font size=-1>87500 thru 87506</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>New York (NY)</font>
+                    </td>
+                    <td>
+                        <font size=-1>New York</font>
+                    </td>
+                    <td>
+                        <font size=-1>10001 thru 10048</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>North Carolina (NC)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Oxford</font>
+                    </td>
+                    <td>
+                        <font size=-1>27565</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>North Dakota (ND)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Walhalla</font>
+                    </td>
+                    <td>
+                        <font size=-1>58282</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Ohio (OH)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Cleveland</font>
+                    </td>
+                    <td>
+                        <font size=-1>44101 thru 44179</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Oklahoma (OK)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Tulsa</font>
+                    </td>
+                    <td>
+                        <font size=-1>74101 thru 74110</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Oregon (OR)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Portland</font>
+                    </td>
+                    <td>
+                        <font size=-1>97201 thru 97225</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Pennsylvania (PA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Pittsburgh</font>
+                    </td>
+                    <td>
+                        <font size=-1>15201 thru 15244</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Rhode Island (RI)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Newport</font>
+                    </td>
+                    <td>
+                        <font size=-1>02840 - 02841</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>South Carolina (SC)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Camden</font>
+                    </td>
+                    <td>
+                        <font size=-1>29020</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>South Dakota (SD)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Aberdeen</font>
+                    </td>
+                    <td>
+                        <font size=-1>57401 - 57402</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Tennessee (TN)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Nashville</font>
+                    </td>
+                    <td>
+                        <font size=-1>37201 thru 37222</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Texas (TX)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Austin</font>
+                    </td>
+                    <td>
+                        <font size=-1>78701 thru 78705</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Utah (UT)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Logan</font>
+                    </td>
+                    <td>
+                        <font size=-1>84321 thru 84323</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Vermont (VT)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Killington</font>
+                    </td>
+                    <td>
+                        <font size=-1>05751</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Virginia (VA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Altavista</font>
+                    </td>
+                    <td>
+                        <font size=-1>24517</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Washington (WA)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Bellevue (home of windoze)</font>
+                    </td>
+                    <td>
+                        <font size=-1>98004 thru 98009</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>West Virginia (WV)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Beaver</font>
+                    </td>
+                    <td>
+                        <font size=-1>25813</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Wisconsin (WI)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Milwaukee</font>
+                    </td>
+                    <td>
+                        <font size=-1>53201 thru 53228</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <font size=-1>Wyoming (WY)</font>
+                    </td>
+                    <td>
+                        <font size=-1>Pinedale</font>
+                    </td>
+                    <td>
+                        <font size=-1>82941</font>
+                    </td>
+                </tr>
+            </table>
+            <p>
+   
+    <P>
+           
+
+
+
+
+        </div>
 
 
 
