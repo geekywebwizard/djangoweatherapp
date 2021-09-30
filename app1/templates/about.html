@@ -7,16 +7,24 @@
 
 <div class="row">
     <h5>About the Project</h5>
-    <p>The project is built using Python's Django Web Framework for backend | Bootstrap for fronent and | AirNow API to pull data for few valid US Zip codes
+    <p>The project is built using Python's Django Web Framework for backend | Bootstrap for fronent and | AirNow API + OpenWeatherMaps API to pull data for few valid US Zip codes
 Its a simple and FREE tool for students who wants to learn Python, Django, Bootstrap and APIs. The complete code is available on my Git Hub repository. 
 <a href="https://github.com/geekywebwizard/djangoweatherapp" target="_blank">View repository</a>
     </p>
 
 
-    <h5>How to use the tool:</h5>
+    <h5>Live Weather Check App:</h5>
+    </br>
+    <p>"Live Weather" is an online simple and free tool to check current weather of your city using zipcode and 
+        country code. Created this using Python's Django framework and API used to build this tool is "OpenWeatherMaps API"
+        . This tool is really easy to build and complete source code will be made available on my GitHub account as well. for more details please check 
+        about us or contact page for useful links and other projects. Thank you for visiting and hope you enjoy using the tool.</p>
+
+
+    <h5>Live Airquality Check App:</h5>
     </br>
 
-    <p>Welcome to FREE online AirQuality checker tool. Use this tool to scan air quality in your city using
+    <p> "Live Airquality" is an online simple and free tool built using Django and AirNow API. Use this tool to scan air quality in your city using
         ZIP code.
         This tool uses API provided by AIR-NOW ( Government Organization in USA), hence only ZIP codes from
         USA would be valid.
@@ -25,11 +33,12 @@ Its a simple and FREE tool for students who wants to learn Python, Django, Boots
     </p>
     </br>
 
+
+
+
     <p>For easy reference I have included few ZIP Codes that you might want to use to scan the city air
         quality.
     </p>
-
-    
 
 
      <p>Also Checkout:</p></br>
@@ -41,10 +50,11 @@ Its a simple and FREE tool for students who wants to learn Python, Django, Boots
         </br>
         </br>
         </br>
-
-
-
+    <div style="margin-top:50px; margin-bottom: 50px;">
+        <a href=" {% url 'contact' %}"><h1> << Know about me!</h1></a>
+    </div>
 </div>
-<a href=" {% url 'contact' %}"><h3>Know about me!</h3></a>
+
+
 
 {% endblock%}
