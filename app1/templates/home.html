@@ -3,32 +3,50 @@
 
 {% block content %}
 
-&nbsp;Air Quality Results for :</br>
-<h1>{{ api.0.ReportingArea}}</h1> 
-     
-</br>
-</br>
 
-    <div class=" row  bg-primary">
-        
 
-        <div class="col-2 bg-light" style="margin: 10px;">
-            Date: {{ api.0.DateIssue}} </br>
-            Forecast Date: {{api.0.DateForecast}} </br>
-            Area: {{ api.0.ReportingArea}}</br>
-        </div>
+{% if zipcode %}
 
-        <div class="col-3 bg-light" style="margin: 10px;">
-            State Code: {{api.0.StateCode}}</br>
-            AQI: {{api.0.AQI}}</br>
-            Quality: {{api.0.Category.Name}}</br>
-        </div>
+    {{ zipcode }}
 
-        <div class="col-6 bg-light" style="margin: 10px;">
-            {{api.0.Discussion}}
-        </div>
-    </div>
+{% endif %}
 
+        {% if api %}
+
+            {%if api == "Error ..." %}
+                
+                API Error found, please try again
+            
+            {% else %}
+
+                        <div class=" row" style="border-radius: 10px; background-color:lightgray; padding-top: 25px; padding-bottom: 25px;">
+                            <div class="col-12">
+                                Air Quality Results for : <h1>{{ api.0.ReportingArea}} / {{api.0.DateIssue}}</h1>
+                            </div>
+
+                            <div class="col-4" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
+                                Date: {{ api.0.DateIssue}} </br>
+                                Forecast Date: {{api.0.DateForecast}} </br>
+                                Area: {{ api.0.ReportingArea}}</br>
+                            </div>
+
+                            <div class="col-2" style="margin: 10px; border-radius: 10px; background-color: wheat;padding: 5px;">
+                                State Code: {{api.0.StateCode}}</br>
+                                AQI: {{api.0.AQI}}</br>
+                                Quality: {{api.0.Category.Name}}</br>
+                            </div>
+
+                            <div class="col-5" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
+                             Quality: </br>
+                            <h1>{{api.0.Category.Name}}</h1>
+                            </div>
+
+                            <div class="col-11" style="margin: 10px; border-radius: 10px; background-color: wheat; padding: 5px;">
+                                {{api.0.Discussion}}
+                            </div>
+                        </div>
+            {%endif%}
+        {%endif%}
 
 
 
